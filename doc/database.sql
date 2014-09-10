@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2014 at 02:56 PM
+-- Generation Time: Sep 10, 2014 at 04:08 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -14,6 +14,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `blog`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+`comment_id` int(10) unsigned NOT NULL,
+  `comment_text` text NOT NULL,
+  `comment_author` varchar(255) NOT NULL,
+  `comment_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `post_id` int(10) unsigned NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`comment_id`, `comment_text`, `comment_author`, `comment_created`, `post_id`) VALUES
+(1, 'bla-bla-bla', 'mjau', '2014-09-10 13:56:59', 1),
+(2, 'urrrrrrr', 'nomuidugi', '2014-09-10 13:56:59', 2),
+(5, 'ei kommentaari siin midagi', 'erakeskkond', '2014-09-10 14:00:21', 2),
+(6, 'seda ma arvasin', 'eiütle', '2014-09-10 14:00:21', 2);
 
 -- --------------------------------------------------------
 
@@ -105,6 +130,12 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `deleted`) VALUES
 --
 
 --
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+ ADD PRIMARY KEY (`comment_id`), ADD KEY `post_id` (`post_id`);
+
+--
 -- Indexes for table `post`
 --
 ALTER TABLE `post`
@@ -133,6 +164,11 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+MODIFY `comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
@@ -150,6 +186,12 @@ MODIFY `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`);
 
 --
 -- Constraints for table `post`
