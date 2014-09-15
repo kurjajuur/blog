@@ -2,6 +2,7 @@
 
 class posts extends Controller{
 
+
 	function index(){
 		$this->posts = get_all("SELECT * FROM post");
 
@@ -33,7 +34,7 @@ class posts extends Controller{
                                     post WHERE post_id='$post_id'");
     }
     function view_post() {
-      
+
         $data = $_POST['data'];
         $data['post_id'] = $this->params[0];
         $data['comment_author'] = 'justinanycase';

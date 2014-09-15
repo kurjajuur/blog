@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2014 at 04:08 PM
+-- Generation Time: Sep 15, 2014 at 03:46 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `comment_author` varchar(255) NOT NULL,
   `comment_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `post_id` int(10) unsigned NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `comment`
@@ -38,7 +38,11 @@ INSERT INTO `comment` (`comment_id`, `comment_text`, `comment_author`, `comment_
 (1, 'bla-bla-bla', 'mjau', '2014-09-10 13:56:59', 1),
 (2, 'urrrrrrr', 'nomuidugi', '2014-09-10 13:56:59', 2),
 (5, 'ei kommentaari siin midagi', 'erakeskkond', '2014-09-10 14:00:21', 2),
-(6, 'seda ma arvasin', 'eiütle', '2014-09-10 14:00:21', 2);
+(6, 'seda ma arvasin', 'eiütle', '2014-09-10 14:00:21', 2),
+(7, 'grrrr', 'justinanycase', '2014-09-10 14:53:23', 1),
+(8, 'fuuu', 'justinanycase', '2014-09-10 14:54:56', 1),
+(9, 'plaah', 'justinanycase', '2014-09-15 08:41:11', 2),
+(10, 'möhhh', 'justinanycase', '2014-09-15 13:39:51', 2);
 
 -- --------------------------------------------------------
 
@@ -116,14 +120,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(25) NOT NULL,
   `password` varchar(255) NOT NULL,
   `deleted` tinyint(3) unsigned NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `deleted`) VALUES
-(1, 'demo', 'demo', 0);
+(1, 'demo', 'demo', 0),
+(2, 'asdasd', 'qwerty', 0),
+(3, 'irwikkass', 'nurr', 0);
 
 --
 -- Indexes for dumped tables
@@ -167,7 +173,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-MODIFY `comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `post`
 --
@@ -182,7 +188,7 @@ MODIFY `tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-MODIFY `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
