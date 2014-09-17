@@ -35,10 +35,10 @@ class posts extends Controller{
 
     }
     function view_post() {
-
+        $author = isset($this->auth->username)?$this->auth->username:'anonymous';
         $data = $_POST['data'];
         $data['post_id'] = $this->params[0];
-        $data['comment_author'] = $this->auth->username;
+        $data['comment_author'] = $author;
         insert('comment', $data);
     }
 }

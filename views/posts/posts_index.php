@@ -10,8 +10,6 @@
 
         <div class="pull-right">
 
-
-
             <? //print_r($tags);
             if(!empty($tags)) foreach ($tags[$post['post_id']] as $tag):?>
                 <a href="tags/view/<?=$tag['tag_name']?>"><span class="label" style="background-color: #5bc0de"><?=$tag?></span></a>
