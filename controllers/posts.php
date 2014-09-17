@@ -11,6 +11,7 @@ class posts extends Controller{
         foreach ($_tags as $tag) {
             $this->tags[$tag['post_id']][] = $tag['tag_name'];
           }
+
     }
 
     function index_ajax(){
@@ -18,10 +19,7 @@ class posts extends Controller{
         var_dump($_POST);
     }
 
-	function index_post(){
-		echo "\$_POST:<br>";
-		var_dump($_POST);
-	}
+
 
     function view() {
         $post_id = $this->params[0];
@@ -40,5 +38,12 @@ class posts extends Controller{
         $data['post_id'] = $this->params[0];
         $data['comment_author'] = $author;
         insert('comment', $data);
+    }
+    function index_post(){
+        $data = $_POST['data'];
+        $data['post_id'] = $this->params[0];
+        $data['user_id'] = $this->auth->user_id;
+        var_dump($data);
+        insert('post', $data);
     }
 }
