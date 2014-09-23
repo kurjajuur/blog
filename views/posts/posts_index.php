@@ -22,11 +22,11 @@
 <? endforeach ?>
 
 <hr/>
-
+<? if ($auth->logged_in == true): ?>
  <form method="post">
     <input name="data[post_subject]" placeholder="Title"/><br><br>
      <textarea name="data[post_text]" id="" cols="30" rows="5" placeholder="Content"></textarea>
       </br><br>
       <button class="btn btn-default">Post</button>
   </form>
-
+<? endif?>

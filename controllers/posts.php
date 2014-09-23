@@ -43,7 +43,7 @@ class posts extends Controller{
         $data = $_POST['data'];
         $data['post_id'] = $this->params[0];
         $data['user_id'] = $this->auth->user_id;
-        var_dump($data);
+        //var_dump($data);
         insert('post', $data);
     }
 }
