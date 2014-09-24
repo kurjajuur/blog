@@ -1,7 +1,25 @@
-<ul class="list-group">
-    <? foreach ($user as $attribute => $value): ?>
-        <li class="list-group-item">
-            <?=$attribute?>:<?=$value?>
-        </li>
-    <? endforeach ?>
-</ul>
+<h1>User '<?= $user['username'] ?>'</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>Username</th>
+        <td><?= $user['username'] ?></td>
+    </tr>
+    <tr>
+        <th>Password</th>
+        <td><?= $user['password'] ?></td>
+    </tr>
+    <tr>
+        <th>Active</th>
+        <td><?= $user['active'] ?></td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td><?= $user['email'] ?></td>
+    </tr>
+</table>
+<!-- EDIT BUTTON -->
+<form action="users/edit/<?= $user['username'] ?>">
+    <button class="btn btn-default">
+        Edit <?= $user['username'] ?>
+    </button>
+</form>
