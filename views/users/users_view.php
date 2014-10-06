@@ -8,14 +8,7 @@
         <th>Password</th>
         <td><?= $user['password'] ?></td>
     </tr>
-    <tr>
-        <th>Active</th>
-        <td><?= $user['active'] ?></td>
-    </tr>
-    <tr>
-        <th>Email</th>
-        <td><?= $user['email'] ?></td>
-    </tr>
+    
 </table>
 <!-- EDIT BUTTON -->
 <form action="users/edit/<?= $user['username'] ?>">
